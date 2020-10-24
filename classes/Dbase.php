@@ -1,5 +1,5 @@
 <?php 
-class Database {
+class Dbase {
 	//DB Params
 
 	private $host = 'localhost';
