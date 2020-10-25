@@ -1,0 +1,8 @@
+ReWriteEngine On
+
+
+RewriteRule ^quote/getall?$ quote/getall.php
+
+
+
+ErrorDocument 404 error-404-not-found 

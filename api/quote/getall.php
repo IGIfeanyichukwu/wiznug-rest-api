@@ -2,6 +2,8 @@
 
  // Headers
  header('Access-Control-Allow-Origin: *');
+
+ //the data will be output in json format
  header('Content-Type: application/json');
 
  include_once '../../classes/Dbase.php';
@@ -35,11 +37,11 @@
 
  		$quoteItem = array(
  			'id' => $id,
- 			'body' => html_entity_decode($body),
+ 			'quote' => html_entity_decode($quote),
  			'author' => $author
  		);
 
- 		//Push to 'data' of the quotesArray
+ 		//Push to 'data' index of the quotesArray
  		array_push($quotesArray['data'], $quoteItem);
  	}
 
@@ -49,7 +51,7 @@
 
  } else {
 
- 	//no posts
+ 	//if no quote is found
  	echo json_encode(
  		array('message' => 'No Quote Found')
  	);
