@@ -54,4 +54,97 @@ class Quote {
 	}
 
 
+	// Create Quote
+	public function create() {
+		$query = 'INSERT INTO '. $this->quotesTable .' SET
+			quote = :quote,
+			author = :author
+			';
+
+		//prepare statement
+		$stmt = $this->conn->prepare($query);
+
+		// Clean data
+		$this->quote = htmlspecialchars(strip_tags($this->quote));
+		$this->author = htmlspecialchars(strip_tags($this->author));
+
+		// Bind data
+		$stmt->bindParam(':quote', $this->quote);
+		$stmt->bindParam(':author', $this->author);
+
+		// Execute query
+		if($stmt->execute()) {
+			return true;
+		}
+
+		// Print error if something goes wrong
+		printf("Error: %s. \n", $stmt->error);
+
+		return false;
+
+	}
+
+
+		// Update Quote
+	public function update() {
+		// create query 
+		$query = 'UPDATE '. $this->quotesTable .' SET
+			quote = :quote,
+			author = :author,
+		WHERE
+			id = :id
+			';
+
+		//prepare statement
+		$stmt = $this->conn->prepare($query);
+
+		// Clean data
+		$this->quote = htmlspecialchars(strip_tags($this->quote));
+		$this->author = htmlspecialchars(strip_tags($this->author));
+		$this->id = htmlspecialchars(strip_tags($this->id));
+
+		// Bind data
+		$stmt->bindParam(':quote', $this->quote);
+		$stmt->bindParam(':author', $this->author);
+		$stmt->bindParam(':id', $this->id);
+
+
+		// Execute query
+		if($stmt->execute()) {
+			return true;
+		}
+
+		// Print error if something goes wrong
+		printf("Error: %s. \n", $stmt->error);
+
+		return false;
+
+	}
+
+		// delete quote
+	public function delete() {
+		// Create query
+		$query = 'DELETE FROM '. $this->quotesTable .' WHERE id = :id';
+
+		// Prepare statement
+		$stmt = $this->conn->prepare($query);
+
+		// clean data
+		$this->id = htmlspecialchars(strip_tags($this->id));
+
+		 // Bind data
+		$stmt->bindParam(':id', $this->id);
+
+		// Execute query
+		if($stmt->execute()) {
+			return true;
+		}
+
+		// Print error if something goes wrong
+		printf("Error: %s. \n", $stmt->error);
+
+		return false;
+	}
+
+
 }
