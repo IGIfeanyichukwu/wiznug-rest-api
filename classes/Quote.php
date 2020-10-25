@@ -47,9 +47,17 @@ class Quote {
 
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		//Set properties
-		$this->quote = $row['quote'];
-		$this->author = $row['author'];
+		if($row != null) {
+			//Set properties
+			$this->quote = $row['quote'];
+			$this->author = $row['author'];
+		} else {
+			echo json_encode (
+		 		array('message' => 'No quote with the given id')
+		 	);
+			exit;
+		}
+
 
 	}
 

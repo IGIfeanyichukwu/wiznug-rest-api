@@ -3,6 +3,9 @@ ReWriteEngine On
 
 RewriteRule ^api/quote/getall?$ api/quote/getall.php
 RewriteRule ^api/quote/getsingle?$ api/quote/getsingle.php
+RewriteRule ^api/quote/create?$ api/quote/create.php
+RewriteRule ^api/quote/update?$ api/quote/update.php
+RewriteRule ^api/quote/delete?$ api/quote/delete.php
 RewriteRule ^404?$ 404.php
 
 
