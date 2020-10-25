@@ -98,7 +98,7 @@ class Quote {
 		// create query 
 		$query = 'UPDATE '. $this->quotesTable .' SET
 			quote = :quote,
-			author = :author,
+			author = :author
 		WHERE
 			id = :id
 			';
