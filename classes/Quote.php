@@ -45,9 +45,6 @@ class Quote {
 		//execute query
 		$stmt->execute();
 
-		/*//return statment
-		return $stmt;*/
-
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		//Set properties

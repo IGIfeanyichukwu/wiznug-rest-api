@@ -1,7 +1,8 @@
 ReWriteEngine On
 
 
-RewriteRule ^quote/getall?$ quote/getall.php
+RewriteRule ^api/quote/getall?$ api/quote/getall.php
+RewriteRule ^api/quote/getsingle?$ api/quote/getsingle.php
 RewriteRule ^404?$ 404.php
 
 
