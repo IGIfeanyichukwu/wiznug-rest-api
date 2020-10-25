@@ -31,4 +31,30 @@ class Quote {
 	}
 
 
+	//get single quote
+	public function getSingle() {
+		//create query
+		$query = 'SELECT * FROM '.$this->quotesTable.' WHERE id = ? LIMIT 0,1';
+
+		//prepare statement
+		$stmt = $this->conn->prepare($query);
+
+		//bind values
+		$stmt->bindValue(1, $this->id);
+
+		//execute query
+		$stmt->execute();
+
+		/*//return statment
+		return $stmt;*/
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		//Set properties
+		$this->quote = $row['quote'];
+		$this->author = $row['author'];
+
+	}
+
+
 }
