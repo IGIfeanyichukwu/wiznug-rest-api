@@ -2,7 +2,8 @@ ReWriteEngine On
 
 
 RewriteRule ^quote/getall?$ quote/getall.php
+RewriteRule ^404?$ 404.php
 
 
 
-ErrorDocument 404 error-404-not-found 
+ErrorDocument 404 http://localhost/wiznug-restful-api/404
